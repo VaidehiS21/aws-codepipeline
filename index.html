@@ -1,88 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AWS CI/CD Success</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI/CD Pipeline Status</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    }
-
     body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
       color: white;
     }
 
     .card {
       background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
       padding: 40px 50px;
-      border-radius: 12px;
+      border-radius: 14px;
       text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      animation: fadeIn 1s ease;
+      box-shadow: 0 0 30px rgba(0,0,0,0.4);
+      max-width: 520px;
+      width: 90%;
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 34px;
       margin-bottom: 10px;
+      color: #00ffcc;
     }
 
-    p {
-      font-size: 16px;
-      opacity: 0.85;
-      margin-bottom: 25px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #00ff99;
-      color: #000;
-      padding: 8px 18px;
-      border-radius: 25px;
+    .status {
+      font-size: 22px;
+      margin: 15px 0;
+      color: #00ff7f;
       font-weight: 600;
-      font-size: 14px;
-      margin-bottom: 15px;
+    }
+
+    .info {
+      font-size: 16px;
+      margin: 6px 0;
+      opacity: 0.85;
+    }
+
+    .version {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ffd700;
+      font-weight: bold;
     }
 
     .footer {
-      font-size: 12px;
-      opacity: 0.6;
       margin-top: 25px;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      font-size: 13px;
+      opacity: 0.7;
     }
   </style>
 </head>
-
 <body>
 
   <div class="card">
-    <div class="badge">🚀 Deployment Successful</div>
-    <h1>Hello from AWS CI/CD</h1>
-    <p>GitHub → CodePipeline → CodeBuild → CodeDeploy → EC2</p>
+    <h1>🚀 CI/CD Pipeline Live</h1>
 
-    <div class="footer">
-      Powered by AWS & DevOps Automation
-    </div>
+    <div class="status">✅ Deployment Successful</div>
+
+    <div class="info">Pipeline: GitHub → CodeBuild → CodeDeploy → EC2</div>
+    <div class="info">Service: Node.js Application</div>
+
+    <div class="version">Version: v1.0.3</div>
+    <div class="info">Last Deployed: <span id="time"></span></div>
+
+    <div class="footer">AWS CI/CD Learning Setup</div>
   </div>
+
+  <script>
+    document.getElementById("time").innerText = new Date().toLocaleString();
+  </script>
 
 </body>
 </html>

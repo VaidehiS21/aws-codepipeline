@@ -1,5 +1,8 @@
 #!/bin/bash
-cd /home/ubuntu/aws-codepipeline
+set -e
 
 echo "Installing dependencies..."
-npm install
+
+cd /home/ubuntu/aws-codepipeline
+
+npm install --no-fund --no-audit

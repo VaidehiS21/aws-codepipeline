@@ -1,7 +1,10 @@
 #!/bin/bash
+set -e
+
 echo "Cleaning old deployment files..."
 
-rm -rf /home/ubuntu/aws-codepipeline/*
+sudo rm -rf /home/ubuntu/aws-codepipeline/*
+sudo mkdir -p /home/ubuntu/aws-codepipeline
 
 echo "Fixing permissions..."
-chown -R ubuntu:ubuntu /home/ubuntu/aws-codepipeline
+sudo chown -R ubuntu:ubuntu /home/ubuntu/aws-codepipeline

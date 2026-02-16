@@ -2,10 +2,15 @@ version: 0.0
 os: linux
 
 files:
- - source: /
-   destination: /home/ubuntu/aws-codepipeline
+  - source: /
+    destination: /home/ubuntu/aws-codepipeline
 
 hooks:
+  BeforeInstall:
+    - location: scripts/cleanup.sh
+      timeout: 300
+      runas: root
+
   ApplicationStop:
     - location: scripts/stop_app.sh
       timeout: 300
